@@ -22,6 +22,8 @@
         <maven.resources.plugin>3.3.1</maven.resources.plugin>
         <extent.report.version>5.1.2</extent.report.version>
         <lombok.version>1.18.30</lombok.version>
+        <browser>chrome</browser>
+        <suite>vendor-portal.xml</suite>
         <!-- output directory -->
         <package.directory>${project.build.directory}/docker-resources</package.directory>
     </properties>
@@ -75,6 +77,16 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>5.4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.4.1</version>
+        </dependency>
+        <dependency>
             <groupId>com.influxdb</groupId>
             <artifactId>influxdb-client-java</artifactId>
             <version>6.11.0</version>
@@ -100,7 +112,7 @@
                 <configuration>
                     <systemPropertyVariables>
 <!--                        maven clean test -Dbrowser=chrome -Dselenium.grid.enabled=true  -->
-<!--                        <browser>chrome</browser>-->
+                        <browser>${browser}</browser>
                         <selenium.grid.enabled>false</selenium.grid.enabled>
 <!--                        <selenium.grid.enabled>true</selenium.grid.enabled>-->
                     </systemPropertyVariables>

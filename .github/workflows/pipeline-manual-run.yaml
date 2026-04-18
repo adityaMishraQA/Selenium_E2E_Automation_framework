@@ -48,7 +48,7 @@ jobs:
 
       - name: Running the test cases
         continue-on-error: true
-        run: mvn clean test -Dsuite=${{ inputs.suiteName }} -Dbrowser=${{ inputs.browserType }}
+        run: mvn clean test -Dsuite=${{ inputs.suiteName }} -Dbrowser=${{ inputs.browserType }} -Dbrowser.headless=true
 
       - name: Printing the Test execution status
         if: always()                                           # adding always() since this step will run always even if test cases run fail

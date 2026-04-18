@@ -212,9 +212,14 @@ public class BasePage {
     protected WebElement findElementWithWait(String xpath, WaitStrategyEnums waitStrategyEnums,long durationInSecond){
         By by=By.xpath(xpath);
         WebElement element=ExplicitWaitImplementation.explicitWaitByStrategy(by, waitStrategyEnums,durationInSecond);
-        ExtentReportLogger.info("Element Clicked:"+by.toString());
-        log.info("{} Element Clicked", by.toString());
+        ExtentReportLogger.info("Element Found:"+by.toString());
+        log.info("{} Element Found", by.toString());
         return element;
+    }
+
+    protected String getCurrentPageUrl()
+    {
+        return DriverManager.getWebDriverFromThreadLocal().getCurrentUrl();
     }
 
 

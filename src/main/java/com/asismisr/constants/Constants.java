@@ -13,6 +13,8 @@ public final class Constants {
     public static final String BROWSER = "browser";
     public static final String FLIGHT_RESERVATION_URL = "flightregervation.url";
     public static final String SAUCEDEMO_URL="saucedemo.url";
+    public static final String SAUCEDEMO_HOME="saucedemo.home";
+    public static final String SAUCEDEMO_EMPTYCREDANTIALS_ERROR="saucedemo.emptyCredantialsError";
     public static final String VENDOR_PORTAL_URL = "vendorportal.url";
     public static final String ERROR_MSG_BROWSER_NOT_SUPPORT = "Browser type not supported";
     public static final String TRUE = "true";

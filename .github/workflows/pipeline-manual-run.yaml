@@ -19,7 +19,7 @@ on:
           - sanity
       browserType:
         type: choice
-        description: Which browser lode?
+        description: Which browser type to select?
         options:
           - chrome
           - firefox

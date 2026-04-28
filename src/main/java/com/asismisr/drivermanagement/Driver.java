@@ -7,6 +7,7 @@ import com.asismisr.exceptions.BrowserNotFoundException;
 import com.asismisr.exceptions.FrameworkExceptions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -38,7 +39,7 @@ public final class Driver {
             driver = getLocalWebdriver();
         }
         DriverManager.setWebDriverThreadLocal(driver);
-        DriverManager.getWebDriverFromThreadLocal().manage().window().maximize();
+        DriverManager.getWebDriverFromThreadLocal().manage().window().setSize(new Dimension(1920, 1080));
     }
 
     //TODO: need to add support for headless for remote web driver/selenium hub execution too
@@ -111,11 +112,11 @@ public final class Driver {
         if(isHeadless){
             // Use W3C-compliant way to enable headless mode
             if (capabilities instanceof ChromeOptions chromeOptions) {
-                chromeOptions.addArguments("--headless=new", "--disable-gpu", "--window-size=1920,1080");
+                chromeOptions.addArguments("--headless=new", "--disable-gpu", "--window-size=1920,1080","--incognito","--disable-notifications","--disable-infobars");
             } else if (capabilities instanceof EdgeOptions edgeOptions) {
-                edgeOptions.addArguments("--headless", "--disable-gpu", "--window-size=1920,1080");
+                edgeOptions.addArguments("--headless", "--disable-gpu", "--window-size=1920,1080","--inprivate","--disable-notifications","--disable-infobars");
             } else if (capabilities instanceof FirefoxOptions firefoxOptions) {
-                firefoxOptions.addArguments("--headless");
+                firefoxOptions.addArguments("--headless","-private");
             }
         }
     }

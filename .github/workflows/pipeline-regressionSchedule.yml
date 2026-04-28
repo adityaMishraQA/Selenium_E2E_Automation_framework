@@ -1,0 +1,26 @@
+name: Regression suite Nightly run
+
+on:
+  schedule:
+    - cron: '30 23 * * *'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build with maven
+        run: mvn clean install -DskipTests
+
+      - name: Run automation script
+        run: mvn clean test -Dsuite=regressionSuite.xml -Dbrowser.headless=true
+
+      - name: Upload Extent Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: extent-report
+          path: target/test-output/extent-Report/

@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="WFM regression suite">
+<suite name="Contact form smoke suite">
     <listeners>
         <listener class-name="com.asismisr.listeners.ListenersClass"/>
         <listener class-name="com.asismisr.listeners.TestAnnotationTransformer"/>
     </listeners>
-    <test verbose="2" preserve-order="true"
-          name="Workflow Milestone test suite">
+    <test name="Contact form test suite">
         <classes>
-            <class name="com.asismisr.test.cargoRunner.WorkflowMilestoneTest"></class>
+            <class name="com.asismisr.test.contactform.LoginPageTest"></class>
         </classes>
     </test>
 </suite>

@@ -160,6 +160,10 @@ public class BasePage {
         return DriverManager.getWebDriverFromThreadLocal().findElements(by);
     }
 
+    protected List<WebElement> returnWebElementsFromBy(String xpath){
+        return DriverManager.getWebDriverFromThreadLocal().findElements(By.xpath(xpath));
+    }
+
     protected WebElement returnWebElementFromBy(By by, int webElementAtIndexToReturn){
         return DriverManager.getWebDriverFromThreadLocal().findElements(by).get(webElementAtIndexToReturn);
     }

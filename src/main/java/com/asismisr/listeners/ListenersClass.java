@@ -28,6 +28,7 @@ public class ListenersClass implements ITestListener, ISuiteListener {
 
         // initializing the extent report
         ExtentReportUtils.initializeExtentReport();
+        log.info("On start completed");
     }
 
     @Override
@@ -59,6 +60,7 @@ public class ListenersClass implements ITestListener, ISuiteListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
+        log.info("[onTestFailure]");
         ExtentReportLogger.fail("Test case:"+result.getMethod().getMethodName()+" is FAILED");
         ExtentReportLogger.info("Exception:"+result.getThrowable().toString());
         ExtentReportLogger.info("Exception stack trace:"+ Arrays.toString(result.getThrowable().getStackTrace()));

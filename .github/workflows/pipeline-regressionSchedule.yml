@@ -16,7 +16,7 @@ jobs:
         run: mvn clean install -DskipTests
 
       - name: Run automation script
-        run: mvn clean test -Dsuite=vendor-portal.xml
+        run: mvn clean test -Dsuite=regressionSuite.xml -Dbrowser.headless=true
 
       - name: Upload Extent Report
         if: always()
